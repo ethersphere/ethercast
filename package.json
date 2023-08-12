@@ -1,0 +1,21 @@
+{
+  "name": "swarm-rtmp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ethersphere/bee-js": "^6.2.0",
+    "cafe-utility": "^10.9.1",
+    "node-media-server": "^2.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.10",
+    "@types/node-media-server": "^2.3.4"
+  }
+}
