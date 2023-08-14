@@ -1,22 +1,25 @@
 {
-  "name": "swarm-rtmp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@ethersphere/bee-js": "^6.2.0",
-    "cafe-utility": "^10.9.1",
-    "ethers": "^6.7.0",
-    "node-media-server": "^2.6.2"
-  },
-  "devDependencies": {
-    "@types/node": "^20.4.10",
-    "@types/node-media-server": "^2.3.4"
-  }
+    "name": "swarm-rtmp",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "ts-node src/index.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@ethersphere/bee-js": "^6.2.0",
+        "cafe-utility": "^10.9.1",
+        "ethers": "^6.7.0",
+        "koa": "^2.14.2",
+        "node-media-server": "^2.6.2"
+    },
+    "devDependencies": {
+        "@types/koa": "^2.13.8",
+        "@types/node": "^20.4.10",
+        "@types/node-media-server": "^2.3.4",
+        "ts-node": "^10.9.1"
+    }
 }

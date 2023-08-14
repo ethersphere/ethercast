@@ -3,6 +3,7 @@ import { Arrays, System } from 'cafe-utility'
 import { Wallet } from 'ethers'
 import { readFile, readdir, unlink } from 'fs/promises'
 import { createPlaylist } from './playlist'
+import { state } from './state'
 
 export async function startUploader() {
     const bee = new Bee(Arrays.requireStringArgument(process.argv, 'bee'))
@@ -15,7 +16,7 @@ export async function startUploader() {
 
     const feed = bee.makeFeedWriter('sequence', '00'.repeat(32), wallet.privateKey)
     const rootChunk = await bee.createFeedManifest(feedStamp, 'sequence', '00'.repeat(32), wallet.address)
-    console.log(rootChunk.reference)
+    state.feed = rootChunk.reference
 
     System.forever(async () => {
         const files = await readdir('./media/live')
