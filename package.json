@@ -12,6 +12,7 @@
   "dependencies": {
     "@ethersphere/bee-js": "^6.2.0",
     "cafe-utility": "^10.9.1",
+    "ethers": "^6.7.0",
     "node-media-server": "^2.6.2"
   },
   "devDependencies": {
