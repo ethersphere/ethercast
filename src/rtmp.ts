@@ -1,3 +1,4 @@
+import { Arrays } from 'cafe-utility'
 import NodeMediaServer from 'node-media-server'
 
 export function startRtmpServer() {
@@ -15,7 +16,7 @@ export function startRtmpServer() {
             mediaroot: './media'
         },
         trans: {
-            ffmpeg: '/opt/homebrew/bin/ffmpeg',
+            ffmpeg: 'ffmpeg' || Arrays.requireStringArgument(process.argv, 'ffmpeg'),
             tasks: [
                 {
                     app: 'live',
