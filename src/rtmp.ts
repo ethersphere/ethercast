@@ -16,7 +16,7 @@ export function startRtmpServer() {
             mediaroot: './media'
         },
         trans: {
-            ffmpeg: 'ffmpeg' || Arrays.requireStringArgument(process.argv, 'ffmpeg'),
+            ffmpeg: Arrays.requireStringArgument(process.argv, 'ffmpeg'),
             tasks: [
                 {
                     app: 'live',
