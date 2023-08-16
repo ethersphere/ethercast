@@ -14,10 +14,6 @@ npm install --global ethercast
 ethercast --watch 844b1bef0fcc3700995700465ef09ebea4a44fc23e3c59ffc84aa87f82f74627
 ```
 
-## 3. Open browser
-
-[http://localhost:13337](http://localhost:13337)
-
 # Stream
 
 ## 1. Install ethercast

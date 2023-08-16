@@ -1,5 +1,6 @@
 import { Arrays } from 'cafe-utility'
 import Koa from 'koa'
+import open from 'open'
 import { state } from './state'
 
 export function startHttpServer() {
@@ -9,7 +10,7 @@ export function startHttpServer() {
             context.body = 'Feed not ready yet, refresh the page in a few seconds'
             return
         }
-        const address = context.query.feed || Arrays.getArgument(process.argv, 'watch') || state.feed
+        const address = context.query.feed || state.feed
         context.body = `
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +32,11 @@ export function startHttpServer() {
     </body>
 </html>`
     })
-    app.listen(13337)
-    console.log('Stream player at http://localhost:13337')
+    app.listen(13337, () => {
+        console.log('Stream player at http://localhost:13337')
+        const address = Arrays.getArgument(process.argv, 'watch')
+        if (address) {
+            open(`http://localhost:13337/?feed=${address}`)
+        }
+    })
 }

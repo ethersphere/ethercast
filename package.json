@@ -18,7 +18,8 @@
         "cafe-utility": "^10.9.1",
         "ethers": "^6.7.0",
         "koa": "^2.14.2",
-        "node-media-server": "^2.6.2"
+        "node-media-server": "^2.6.2",
+        "open": "^8.4.2"
     },
     "devDependencies": {
         "@types/koa": "^2.13.8",
