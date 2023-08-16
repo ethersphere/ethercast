@@ -4,7 +4,7 @@ import { state } from './state'
 export function startHttpServer() {
     const app = new Koa()
     app.use(context => {
-        if (!state.feed) {
+        if (!state.feed && process.argv.includes('--rtmp')) {
             context.body = 'Feed not ready yet, refresh the page in a few seconds'
             return
         }
@@ -30,4 +30,5 @@ export function startHttpServer() {
 </html>`
     })
     app.listen(13337)
+    console.log('Stream player at http://localhost:13337')
 }

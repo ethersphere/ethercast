@@ -3,5 +3,7 @@ import { startHttpServer } from './server'
 import { startUploader } from './uploader'
 
 startHttpServer()
-startRtmpServer()
-startUploader()
+if (process.argv.includes('--rtmp')) {
+    startRtmpServer()
+    startUploader()
+}
