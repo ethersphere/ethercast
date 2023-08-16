@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { startRtmpServer } from './rtmp'
 import { startHttpServer } from './server'
 import { startUploader } from './uploader'

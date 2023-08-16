@@ -1,3 +1,4 @@
+import { Arrays } from 'cafe-utility'
 import Koa from 'koa'
 import { state } from './state'
 
@@ -8,6 +9,7 @@ export function startHttpServer() {
             context.body = 'Feed not ready yet, refresh the page in a few seconds'
             return
         }
+        const address = context.query.feed || Arrays.getArgument(process.argv, 'watch') || state.feed
         context.body = `
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +21,7 @@ export function startHttpServer() {
     </head>
     <body>
         <video id="my-video" class="video-js" controls preload="auto" width="640" height="264" data-setup="{}">
-            <source src="http://localhost:1633/bzz/${context.query.feed || state.feed}/" type="application/x-mpegURL" />
+            <source src="http://localhost:1633/bzz/${address}/" type="application/x-mpegURL" />
             <p class="vjs-no-js">
                 To view this video please enable JavaScript, and consider upgrading to a web browser that
                 <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
