@@ -3,6 +3,7 @@ import NodeMediaServer from 'node-media-server'
 
 export function startRtmpServer() {
     const server = new NodeMediaServer({
+        logType: 1,
         rtmp: {
             port: 1935,
             chunk_size: 60000,
@@ -21,7 +22,7 @@ export function startRtmpServer() {
                 {
                     app: 'live',
                     hls: true,
-                    hlsFlags: '[hls_time=1:hls_list_size=0]',
+                    hlsFlags: '[hls_time=5:hls_list_size=0]',
                     dash: true,
                     dashFlags: '[f=dash:window_size=3:extra_window_size=5]'
                 }
