@@ -2,6 +2,8 @@ import { Bee } from '@ethersphere/bee-js'
 import { getStamp } from './library'
 
 let playlistAddress = ''
+let videoSegmentsCreated = 0
+let lastPlaylist = ''
 
 const stamp = await getStamp()
 const bee = new Bee('http://localhost:1633')
@@ -11,10 +13,15 @@ const uploadedChunks = []
 async function uploadChunk(chunk) {
     const hash = await bee.uploadFile(stamp, chunk, 'chunk.webm', { contentType: 'video/webm', deferred: true })
     uploadedChunks.push(hash.reference)
+    videoSegmentsCreated++
+    document.getElementById('video-segments-created').innerHTML = videoSegmentsCreated
 }
 
 async function uploadPlaylist() {
     const text = uploadedChunks.join('\n')
+    lastPlaylist = text
+    document.getElementById('last-playlist').innerHTML = lastPlaylist
+    document.getElementById('last-playlist').scrollTo(0, document.getElementById('last-playlist').scrollHeight)
     const hash = await bee.uploadFile(stamp, text, 'playlist.txt', {
         contentType: 'text/plain',
         deferred: true
@@ -57,6 +64,7 @@ let index = 0
 
 document.querySelector('#play').addEventListener('click', async function () {
     const video = document.querySelector('#videoPlayer')
+    video.style.display = 'block'
     const mediaSource = new MediaSource()
     video.src = URL.createObjectURL(mediaSource)
     mediaSource.addEventListener('sourceopen', async function () {
